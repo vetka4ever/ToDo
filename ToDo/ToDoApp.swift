@@ -9,9 +9,12 @@ import SwiftUI
 
 @main
 struct ToDoApp: App {
+    @StateObject var viewModel: ToDoViewModel = .init()
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            NavigationView{
+                ToDoView()
+            }.environmentObject(viewModel)
         }
     }
 }
