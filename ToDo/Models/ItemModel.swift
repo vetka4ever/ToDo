@@ -6,7 +6,7 @@
 //
 
 import Foundation
-struct ItemModel: Identifiable{
+struct ItemModel: Identifiable, Codable{
     let id = UUID().uuidString
     let title: String
     let isDone: Bool

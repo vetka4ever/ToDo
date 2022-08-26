@@ -12,29 +12,36 @@ struct ToDoView: View {
     @EnvironmentObject var viewModel: ToDoViewModel
     
     var body: some View {
-        List{
-            ForEach(viewModel.items) { item in
-                ListRowView(title: item.title, isDone: item.isDone)
-                    .onTapGesture {
-                        
-                            viewModel.changeIsDone(item: item)
-                        
+        ZStack{
+            if viewModel.accessToItems.count > 0{
+                List{
+                    ForEach(viewModel.accessToItems) { item in
+                        ListRowView(title: item.title, isDone: item.isDone)
+                            .onTapGesture {
+                                
+                                    viewModel.changeIsDone(item: item)
+                                
+                            }
                     }
+                    .onDelete(perform: viewModel.deleteItem)
+                    .onMove(perform: viewModel.moveItem)
+                }
+                
+                .listStyle(InsetGroupedListStyle())
+                .navigationBarItems(
+                    leading: EditButton(),
+                    trailing: NavigationLink(
+                        destination: { AddView().environmentObject(viewModel)},
+                        label: {Text("Add")
+                                .bold()
+                        })
+                )
             }
-            .onDelete(perform: viewModel.deleteItem)
-            .onMove(perform: viewModel.moveItem)
+            else{
+                NoItemView()
+            }
         }
-        
-        .listStyle(InsetGroupedListStyle())
         .navigationTitle("To Do")
-        .navigationBarItems(
-            leading: EditButton(),
-            trailing: NavigationLink(
-                destination: { AddView().environmentObject(viewModel)},
-                label: {Text("Add")
-                        .bold()
-                })
-        )
     }
     
     

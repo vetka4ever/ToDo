@@ -15,6 +15,7 @@
 		F32E484328B762CE00A4D209 /* ToDoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F32E484228B762CE00A4D209 /* ToDoView.swift */; };
 		F32E484528B762D200A4D209 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F32E484428B762D200A4D209 /* Assets.xcassets */; };
 		F32E484828B762D200A4D209 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F32E484728B762D200A4D209 /* Preview Assets.xcassets */; };
+		F3682C8F28B89E4A00F6DF23 /* NoItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3682C8E28B89E4A00F6DF23 /* NoItemView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,6 +28,7 @@
 		F32E484228B762CE00A4D209 /* ToDoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoView.swift; sourceTree = "<group>"; };
 		F32E484428B762D200A4D209 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F32E484728B762D200A4D209 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		F3682C8E28B89E4A00F6DF23 /* NoItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoItemView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -46,6 +48,7 @@
 				F32E484228B762CE00A4D209 /* ToDoView.swift */,
 				F326880228B7D1CF003DD5B9 /* AddView.swift */,
 				F32687FC28B7C90E003DD5B9 /* ListRowView.swift */,
+				F3682C8E28B89E4A00F6DF23 /* NoItemView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -174,6 +177,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F326880128B7CCC6003DD5B9 /* ToDoViewModel.swift in Sources */,
+				F3682C8F28B89E4A00F6DF23 /* NoItemView.swift in Sources */,
 				F32E484328B762CE00A4D209 /* ToDoView.swift in Sources */,
 				F326880328B7D1CF003DD5B9 /* AddView.swift in Sources */,
 				F32E484128B762CE00A4D209 /* ToDoApp.swift in Sources */,

@@ -7,17 +7,27 @@
 
 import Foundation
 class ToDoViewModel: ObservableObject{
-    @Published var items: [ItemModel] = []
+    //MARK: - Properties
+    @Published private var items: [ItemModel] = []{
+        didSet{
+            saveItems()
+        }
+    }
+    private var itemsKey = "itemsKey"
     
+    //MARK: - Initialization
     init(){
-        items = [
-            ItemModel(title: "Lol, good luck, boy", isDone: true),
-            ItemModel(title: "My first target", isDone: false),
-            ItemModel(title: "Just get out of hear", isDone: false)
-        ]
-        self.sortItems()
+        getItems()
+    }
+    //MARK: - Access to property
+    
+    var accessToItems: [ItemModel]{
+        get{
+            return self.items
+        }
     }
     
+    //MARK: - Methods
     func deleteItem(indexSet: IndexSet){
         items.remove(atOffsets: indexSet)
     }
@@ -35,6 +45,21 @@ class ToDoViewModel: ObservableObject{
     func insertNewItem(title: String){
         items.append(ItemModel(title: title, isDone: false))
         
+    }
+    
+    //MARK: - Private Methods
+    private func getItems(){
+        guard
+            let data = UserDefaults.standard.data(forKey: itemsKey),
+            let newItems = try? JSONDecoder().decode([ItemModel].self, from: data)
+        else{return}
+        items = newItems
+    }
+    
+    private func saveItems(){
+        if let data = try? JSONEncoder().encode(items){
+            UserDefaults.standard.set(data, forKey: itemsKey)
+        }
     }
     
     private func sortItems(){
