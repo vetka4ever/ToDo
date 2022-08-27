@@ -15,6 +15,7 @@ struct ToDoApp: App {
             NavigationView{
                 ToDoView()
             }.environmentObject(viewModel)
+                .navigationViewStyle(.stack)
                 .accentColor(Color.accentColor)
         }
     }

@@ -39,6 +39,7 @@ struct NoItemView: View {
                         y: 0)
                 .offset(y: animate ? 0 : -7)
             }
+            .frame(maxWidth: 400)
             .multilineTextAlignment(.center)
             .padding(40)
             
@@ -48,7 +49,7 @@ struct NoItemView: View {
     }
     
     func animatePerform(){
-        DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
             withAnimation(
                 Animation
                     .easeInOut(duration: 1.2)
@@ -64,6 +65,7 @@ struct NoItemView_Previews: PreviewProvider {
         NavigationView{
             NoItemView()
         }
+.previewInterfaceOrientation(.landscapeLeft)
         
     }
 }

@@ -54,6 +54,7 @@ struct ToDoView_Previews: PreviewProvider {
             ToDoView()
                 .environmentObject(ToDoViewModel())
         }
+
         
     }
 }
